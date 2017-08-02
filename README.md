@@ -11,14 +11,14 @@ This makes a lot easier refactoring the existing application.
 
 ## Usage
 
-Wrap your app in the `FeatureToggleProvider` and pass in a list of toggles, then use the `FeatureToggle` component throughout your application.
+Wrap your app in the `FeatureToggleProvider` and pass in a list of toggles, then use the `withFeatureToggle` HOC on your existing or newly created component that you want to feature toggled.
 
-Both `FeatureToggleProvider` and `FeatureToggle` must have only one child, this is so that the library isn't rendering additional elements on your behalf and making assumptions about your needs e.g you may want an `<li>` rather than a `<div>`.
+`FeatureToggleProvider` must have only one child, this is so that the library isn't rendering additional elements on your behalf and making assumptions about your needs e.g you may want an `<li>` rather than a `<div>`.
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { FeatureToggleProvider, FeatureToggle } from 'react-feature-toggles';
+import { FeatureToggleProvider } from 'react-feature-toggles';
 
 const toggles = {
   // Try setting this to true
@@ -26,22 +26,38 @@ const toggles = {
   // ... add more here
 };
 
-const ExampleApp = () => (
-  <FeatureToggleProvider featureToggleList={toggles}>
-    <div>
-      <h1>Toggling Example</h1>
-      <FeatureToggle featureName={toggleNames.SHOW_HELLO_WORLD}>
-        <p>Hello World</p>
-      </FeatureToggle>
-      <FeatureToggle featureName={toggleNames.SHOW_HELLO_WORLD} showOnlyWhenDisabled>
-        <p>Sorry, toggle is off</p>
-      </FeatureToggle>
-    </div>
-  </FeatureToggleProvider>
+const ExampleComponent = () => (
+    <FeatureToggleProvider featureToggleList={toggles}>
+        <div>
+            <h1>Toggling Example</h1>
+            <FeatureToggledComponent/>
+        </div>
+    </FeatureToggleProvider>
 );
 
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
+```
+
+```javascript
+import * as React from 'react';
+import {withFeatureToggle} from '../lib/hoc/featureToggle';
+class FeatureToggledComponent extends React.Component {
+    render() {
+        return (
+            <div>
+                <span>Component that can be toggled</span>
+                <ul>
+                    <li>List 1</li>
+                    <li>List 2</li>
+                    <li>List 3</li>
+                </ul>
+            </div>
+        );
+    }
+}
+
+export default withFeatureToggle(FeatureToggledComponent, "showHelloWorld");
 ```
 
 ### Redux
