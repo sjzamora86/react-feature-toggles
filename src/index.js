@@ -1,4 +1,4 @@
-import FeatureToggle from './FeatureToggle';
 import FeatureToggleProvider from './FeatureToggleProvider';
+import {withFeatureToggle} from './hoc/featureToggle';
 
-export { FeatureToggleProvider, FeatureToggle };
+export { FeatureToggleProvider, withFeatureToggle };

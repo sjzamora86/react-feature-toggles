@@ -1,31 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { FeatureToggleProvider, FeatureToggle } from '../lib/index';
+import {FeatureToggleProvider} from '../lib/index';
+import FeatureToggledButton from './FeatureToggledButton';
 
 const toggleNames = {
-  SHOW_HELLO_WORLD: 'showHelloWorld'
-  // ... add more here
+    SHOW_HELLO_WORLD: 'showHelloWorld',
+    SHOW_BUTTON: 'showButton'
+    // ... add more here
 };
 
 const toggles = {
-  // Try setting this to true
-  [toggleNames.SHOW_HELLO_WORLD]: false
-  // ... add more here
+    // Try setting this to true
+    [toggleNames.SHOW_HELLO_WORLD]: false,
+    [toggleNames.SHOW_BUTTON]: true
+    // ... add more here
 };
 
 const ExampleComponent = () => (
-  <FeatureToggleProvider featureToggleList={toggles}>
-    <div>
-      <h1>Toggling Example</h1>
-      <FeatureToggle featureName={toggleNames.SHOW_HELLO_WORLD}>
-        <p>Hello World</p>
-      </FeatureToggle>
-      <FeatureToggle featureName={toggleNames.SHOW_HELLO_WORLD} showOnlyWhenDisabled>
-        <p>Sorry, toggle is off</p>
-      </FeatureToggle>
-    </div>
-  </FeatureToggleProvider>
+    <FeatureToggleProvider featureToggleList={toggles}>
+        <div>
+            <h1>Toggling Example</h1>
+            <FeatureToggledButton/>
+        </div>
+    </FeatureToggleProvider>
 );
 
 
-ReactDOM.render(<ExampleComponent />, document.getElementById('example'));
+ReactDOM.render(<ExampleComponent/>, document.getElementById('example'));

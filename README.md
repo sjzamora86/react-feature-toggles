@@ -1,9 +1,9 @@
-# react-feature-toggles
-Declarative feature toggle framework for react / react-native, allowing you to get rid of test complications, and branching logic.
+# react-feature-toggles-extended
+This application is extended version of [react-feature-toggles](https://github.com/RosyTucker/react-feature-toggles)
 
-[![Build Status](https://travis-ci.org/RosyTucker/react-feature-toggles.svg?branch=master)](https://travis-ci.org/RosyTucker/react-feature-toggles)
-
-[![npm version](https://badge.fury.io/js/react-feature-toggles.svg)](https://badge.fury.io/js/react-feature-toggles)
+#####extension
+This project aims to create a HOC feature that wraps the feature toggling component instead of creating a declarative component.
+This makes a lot easier refactoring the existing application.    
 
 ## Install
 
@@ -62,15 +62,7 @@ And then use the connected provider in place of the normal provider.
 
 - Clone this repo
 - Run `npm install`
+- Run `npm run build`
 - Run `npm run build-example`
 - Open `example/example.html` in the browser
 - Play around with the toggle values
-
-## Making a pull request?
-- Make sure you've run `npm run ci-build` first
-
-## Changes
-
-- Version 2.0.3 Switch proptypes from React.PropTypes to the dedicated proptypes library
-- Version 2.0.2 unsures an undefined toggle is treated a false
-- Version 2.0.1 removes a containing div around the provider children, should you need this div, please add it in yourself. 
