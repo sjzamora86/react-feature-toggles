@@ -1,11 +1,11 @@
 # react-feature-toggles-extended
 This application is extended version of [react-feature-toggles](https://github.com/RosyTucker/react-feature-toggles)
 
-#####extension
-This project aims to create a HOC feature that wraps the feature toggling component instead of creating a declarative component.
-This makes a lot easier refactoring the existing application.    
+## Extension
+This project aims to create a HOC feature that wraps the feature toggling component instead of using a declarative component.
+Using HOC will make the refactoring a lot easier for existing applications that requires feature toggles.    
 
-## Install
+## Install (Still not available as npm module)
 
 `npm install --save react-feature-toggles`
 
