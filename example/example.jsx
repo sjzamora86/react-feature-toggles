@@ -20,10 +20,6 @@ const ExampleComponent = () => (
             <h1>Toggling Example</h1>
             <FeatureToggledComponent/>
         </div>
-        <div>
-            <h1>Toggling Example</h1>
-            <FeatureToggledComponent/>
-        </div>
     </FeatureToggleProvider>
 );
 
